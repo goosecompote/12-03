@@ -32,8 +32,8 @@ LIMIT 5;
 -замените буквы 'll' в именах на 'pp'.  
 ## Задание 4 решение  
 ```
-SELECT LOWER(REPLACE (c.first_name,'ll','pp' )) AS first_name,
-LOWER (c.last_name) AS last_name
+SELECT LOWER(REPLACE(c.first_name,'ll','pp' )) AS first_name,
+LOWER(c.last_name) AS last_name
 FROM customer c
-WHERE c.first_name IN ('Kelly', 'Willie') AND c.active = true;
+WHERE first_name = 'Kelly' OR first_name = 'Willie' AND active = true;
 ```
