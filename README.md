@@ -19,10 +19,21 @@ WHERE payment_date BETWEEN '2005-06-15' AND '2005-06-18' AND amount > 10;
 ## Задание 3  
 Получите последние пять аренд фильмов.  
 ## Задание 3 решение  
-
+```
+SELECT *
+FROM rental r 
+ORDER BY r.rental_date DESC
+LIMIT 5;
+```
 ## Задание 4  
 Одним запросом получите активных покупателей, имена которых Kelly или Willie.  
 Сформируйте вывод в результат таким образом:  
 -все буквы в фамилии и имени из верхнего регистра переведите в нижний регистр,  
 -замените буквы 'll' в именах на 'pp'.  
 ## Задание 4 решение  
+```
+SELECT LOWER(REPLACE (c.first_name,'ll','pp' )) AS first_name,
+LOWER (c.last_name) AS last_name
+FROM customer c
+WHERE c.first_name IN ('Kelly', 'Willie') AND c.active = true;
+```
